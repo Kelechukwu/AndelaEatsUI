@@ -12,6 +12,7 @@ import Modal from '../MealCard/Modal';
 import 'rc-pagination/assets/index.css';
 import { fetchOrders, filterOrders, deleteOrder } from '../../actions/ordersAction';
 import Loader from '../common/Loader/Loader';
+import RatingsModal from '../MealCard/RatingsModal';
 
 /**
  * Application's order history page
@@ -29,6 +30,7 @@ export class Orders extends Component {
       start: '',
       end: new Date(),
       showModal: false,
+      showRatingModal: false,
       modalContent: null
     };
 
@@ -39,6 +41,9 @@ export class Orders extends Component {
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
     this.deleteOrder = this.deleteOrder.bind(this);
+    this.showRatingModal = this.showRatingModal.bind(this);
+    this.hideRatingModal = this.hideRatingModal.bind(this);
+    this.ratingChanged = this.ratingChanged.bind(this);
   }
 
   /**
@@ -172,6 +177,45 @@ export class Orders extends Component {
   }
 
   /**
+   * Handles ratings for food
+   *
+   * @memberof RatingModal
+   * @param {string} newRating
+   * 
+   * @returns {void}
+   */
+  ratingChanged(newRating) {
+    console.log(newRating);
+  }
+
+  /**
+   * Display a modal to delete a meal
+   *
+   * @param {object} meal
+   * @memberof Orders
+   * 
+   * @returns {void}
+   */
+  showRatingModal() {
+    this.setState({
+      showRatingModal: true
+    });
+  }
+
+  /**
+   * Hide modal
+   *
+   * @memberof Orders
+   * 
+   * @returns {void}
+   */
+  hideRatingModal() {
+    this.setState({
+      showRatingModal: false
+    });
+  }
+
+  /**
    * 
    * This is React render method that render the UI on the dom
    * @function Orders
@@ -266,6 +310,11 @@ export class Orders extends Component {
             deleteOrder={this.deleteOrder}
             modalContent={this.state.modalContent}
           />
+          <RatingsModal 
+            displayModal={this.state.showRatingModal}
+            closeModal={this.hideRatingModal}
+            ratingChanged={this.ratingChanged}
+          />
           <div className="container">
             {
               orders.meals.map((meal) => (
@@ -274,6 +323,7 @@ export class Orders extends Component {
                   meal={meal}
                   url={url}
                   showModal={this.showModal}
+                  showRatingModal={this.showRatingModal}
                 />
               ))
             }
