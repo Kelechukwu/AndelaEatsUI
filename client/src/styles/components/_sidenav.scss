@@ -88,6 +88,19 @@
   }
 }
 
+.rating {
+  background-image: url('../assets/images/icons8-star-64.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center; 
+  &.active {
+    background-image: url('../assets/images/icons8-star-64.png');
+  }
+  &:hover {
+    background-image: url('../assets/images/icons8-star-64.png');
+  }
+}
+
 .main-container {
   margin-left: 150px;
   width: calc(100% - 150px);

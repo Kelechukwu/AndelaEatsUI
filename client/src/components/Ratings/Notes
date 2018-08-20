@@ -1,0 +1,83 @@
+> new Date()
+2018-08-12T21:26:55.939Z
+> k = {a: 1}
+{ a: 1 }
+> b = [{a:1}, {b:2}]
+[ { a: 1 }, { b: 2 } ]
+> b.length ? 'not from us' : 'from us'
+'not from us'
+> b.length ? 'not from us' : 'from us'
+
+> k.getHours()
+22
+
+
+userOrderedWithUs = {
+  mainMeal: {
+    id: 11,
+    name: 'eba',
+    rate: 0
+  },
+  side1: {
+    id: 12,
+    name: 'meat',
+    rate: 0
+  },
+  side2: {
+    id: 13,
+    name: 'apple',
+    rate: 0
+  }
+}
+
+!userOrderedWithUs = [
+  mainMeal: {
+    id: 11,
+    name: 'eba',
+    rate: 0
+  },
+  side1: {
+    id: 12,
+    name: 'meat',
+    rate: 0
+  },
+  side2: {
+    id: 13,
+    name: 'apple',
+    rate: 0
+  },
+  mainMeal: {
+    id: 11,
+    name: 'eba',
+    rate: 0
+  },
+  side1: {
+    id: 12,
+    name: 'meat',
+    rate: 0
+  },
+  side2: {
+    id: 13,
+    name: 'apple',
+    rate: 0
+  },
+  mainMeal: {
+    id: 11,
+    name: 'eba',
+    rate: 0
+  },
+  side1: {
+    id: 12,
+    name: 'meat',
+    rate: 0
+  },
+  side2: {
+    id: 13,
+    name: 'apple',
+    rate: 0
+  }
+]
+
+const orderableDay = new Date().getHours() >= 15 ? new Date() || new Date() - 1
+
+api/v1/ratings?date=orderableDay

@@ -18,15 +18,6 @@ const CollectedAction = ({ id, rating }) => (
           name="rating"
         />
       </div>
-      <div>
-        <p className="sub-head">Rate this meal</p>
-        <a
-          className="button"
-          tabIndex="0"
-          role="button"
-        >Rate
-        </a>
-      </div>
     </Fragment>
   </div>
 );
